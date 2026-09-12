@@ -1,0 +1,9 @@
+# Railway — Docker build; set TOOLRANK_API_KEYS in the service variables UI.
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"

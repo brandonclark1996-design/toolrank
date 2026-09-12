@@ -1,0 +1,16 @@
+# Render Blueprint — free/starter friendly Web Service
+# Set TOOLRANK_API_KEYS in the Render dashboard (do not commit real keys).
+# Stripe and custom domains are NOT wired yet; use the default *.onrender.com URL.
+services:
+  - type: web
+    name: toolrank
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: HOST
+        value: "0.0.0.0"
+      - key: TOOLRANK_API_KEYS
+        sync: false

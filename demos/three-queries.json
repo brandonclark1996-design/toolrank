@@ -1,0 +1,434 @@
+{
+  "scrape-rag": {
+    "schema_version": "0.1.0",
+    "as_of": "2026-09-12T21:05:12.849Z",
+    "job": "scrape website to markdown for RAG",
+    "constraints": {
+      "budget": "any"
+    },
+    "count": 5,
+    "results": [
+      {
+        "id": "firecrawl",
+        "name": "Firecrawl",
+        "url": "https://www.firecrawl.dev",
+        "interface": "both",
+        "price_band": "freemium",
+        "tags": [
+          "scrape",
+          "crawl",
+          "markdown",
+          "rag",
+          "web",
+          "html",
+          "extract"
+        ],
+        "description": "Turn websites into clean markdown/JSON for RAG and LLM pipelines. Crawl, scrape, and map APIs plus MCP server.",
+        "install": "npx -y firecrawl-mcp",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 18.25,
+        "reasons": [
+          "tag:scrape",
+          "desc:scrape",
+          "tag~website",
+          "desc:website",
+          "tag:markdown",
+          "desc:markdown",
+          "tag:rag",
+          "desc:rag"
+        ]
+      },
+      {
+        "id": "jina-reader",
+        "name": "Jina Reader",
+        "url": "https://jina.ai/reader",
+        "interface": "api",
+        "price_band": "freemium",
+        "tags": [
+          "scrape",
+          "markdown",
+          "reader",
+          "rag",
+          "html",
+          "fetch",
+          "web"
+        ],
+        "description": "Convert any URL to clean LLM-ready markdown via r.jina.ai. Simple fetch-based reader API.",
+        "install": "curl https://r.jina.ai/{url} \u2014 or Reader API with key at jina.ai",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 15,
+        "reasons": [
+          "tag:scrape",
+          "tag~website",
+          "tag:markdown",
+          "desc:markdown",
+          "tag:rag"
+        ]
+      },
+      {
+        "id": "crawl4ai",
+        "name": "Crawl4AI",
+        "url": "https://github.com/unclecode/crawl4ai",
+        "interface": "api",
+        "price_band": "free",
+        "tags": [
+          "scrape",
+          "crawl",
+          "markdown",
+          "rag",
+          "open-source",
+          "llm"
+        ],
+        "description": "Open-source LLM-friendly web crawler. Outputs clean markdown optimized for RAG pipelines.",
+        "install": "pip install -U crawl4ai && crawl4ai-setup",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 14.5,
+        "reasons": [
+          "tag:scrape",
+          "tag:markdown",
+          "desc:markdown",
+          "tag:rag",
+          "desc:rag",
+          "price:free"
+        ]
+      },
+      {
+        "id": "fetch-mcp",
+        "name": "Fetch MCP",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+        "interface": "mcp",
+        "price_band": "free",
+        "tags": [
+          "fetch",
+          "http",
+          "html",
+          "markdown",
+          "scrape",
+          "web"
+        ],
+        "description": "Official MCP fetch server. Retrieve URL content and convert HTML to markdown for LLMs.",
+        "install": "uvx mcp-server-fetch",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 11.75,
+        "reasons": [
+          "tag:scrape",
+          "tag~website",
+          "tag:markdown",
+          "desc:markdown",
+          "price:free"
+        ]
+      },
+      {
+        "id": "apify",
+        "name": "Apify",
+        "url": "https://apify.com",
+        "interface": "both",
+        "price_band": "freemium",
+        "tags": [
+          "scrape",
+          "crawl",
+          "actors",
+          "automation",
+          "web",
+          "datasets"
+        ],
+        "description": "Actor marketplace and scraping platform. Thousands of ready scrapers plus custom actor hosting.",
+        "install": "npx -y @apify/actors-mcp-server",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 7.25,
+        "reasons": [
+          "tag:scrape",
+          "desc:scrape",
+          "tag~website"
+        ]
+      }
+    ]
+  },
+  "web-news": {
+    "schema_version": "0.1.0",
+    "as_of": "2026-09-12T21:05:12.858Z",
+    "job": "search the web for recent company news",
+    "constraints": {
+      "budget": "any"
+    },
+    "count": 5,
+    "results": [
+      {
+        "id": "brave-search",
+        "name": "Brave Search MCP",
+        "url": "https://brave.com/search/api",
+        "interface": "mcp",
+        "price_band": "freemium",
+        "tags": [
+          "search",
+          "web",
+          "privacy",
+          "news",
+          "images"
+        ],
+        "description": "Brave Search API exposed as MCP. Independent web index for agent search without Google.",
+        "install": "npx -y @brave/brave-search-mcp-server",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 17.25,
+        "reasons": [
+          "tag:search",
+          "name~search",
+          "desc:search",
+          "tag:web",
+          "desc:web",
+          "tag:news"
+        ]
+      },
+      {
+        "id": "duckduckgo-search",
+        "name": "DuckDuckGo Search MCP",
+        "url": "https://github.com/nickclyde/duckduckgo-mcp-server",
+        "interface": "mcp",
+        "price_band": "free",
+        "tags": [
+          "search",
+          "web",
+          "privacy",
+          "duckduckgo",
+          "free"
+        ],
+        "description": "Free DuckDuckGo search MCP server. No API key required for basic web search.",
+        "install": "uvx duckduckgo-mcp-server",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 13.75,
+        "reasons": [
+          "tag:search",
+          "name~search",
+          "desc:search",
+          "tag:web",
+          "desc:web",
+          "price:free"
+        ]
+      },
+      {
+        "id": "tavily",
+        "name": "Tavily",
+        "url": "https://www.tavily.com",
+        "interface": "both",
+        "price_band": "freemium",
+        "tags": [
+          "search",
+          "web",
+          "research",
+          "rag",
+          "news",
+          "extract"
+        ],
+        "description": "AI-native search API with answer generation and content extraction. Built for agents and RAG.",
+        "install": "npx -y tavily-mcp",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 13.25,
+        "reasons": [
+          "tag:search",
+          "desc:search",
+          "tag:web",
+          "tag:news"
+        ]
+      },
+      {
+        "id": "exa",
+        "name": "Exa",
+        "url": "https://exa.ai",
+        "interface": "both",
+        "price_band": "freemium",
+        "tags": [
+          "search",
+          "web",
+          "neural",
+          "rag",
+          "research",
+          "find"
+        ],
+        "description": "Neural web search API optimized for AI agents. Find pages by meaning, get clean content for RAG.",
+        "install": "npx -y exa-mcp-server",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 10.25,
+        "reasons": [
+          "tag:search",
+          "desc:search",
+          "tag:web",
+          "desc:web"
+        ]
+      },
+      {
+        "id": "parallel",
+        "name": "Parallel",
+        "url": "https://parallel.ai",
+        "interface": "api",
+        "price_band": "freemium",
+        "tags": [
+          "search",
+          "web",
+          "research",
+          "agents",
+          "parallel",
+          "task"
+        ],
+        "description": "Web research API for AI agents. Parallelized search and extraction for deep research workflows.",
+        "install": "See https://docs.parallel.ai \u2014 REST API with API key",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 10,
+        "reasons": [
+          "tag:search",
+          "desc:search",
+          "tag:web",
+          "desc:web"
+        ]
+      }
+    ]
+  },
+  "oauth-comms": {
+    "schema_version": "0.1.0",
+    "as_of": "2026-09-12T21:05:12.861Z",
+    "job": "connect agent to Gmail and Slack with OAuth",
+    "constraints": {
+      "budget": "any"
+    },
+    "count": 5,
+    "results": [
+      {
+        "id": "composio",
+        "name": "Composio",
+        "url": "https://composio.dev",
+        "interface": "both",
+        "price_band": "freemium",
+        "tags": [
+          "integrations",
+          "oauth",
+          "gmail",
+          "slack",
+          "github",
+          "tools",
+          "actions"
+        ],
+        "description": "Managed auth and 250+ tool integrations for agents. Connect Gmail, Slack, GitHub, Notion, etc.",
+        "install": "npx -y @composio/mcp",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 16.25,
+        "reasons": [
+          "desc:connect",
+          "desc:agent",
+          "tag:gmail",
+          "desc:gmail",
+          "tag:slack",
+          "desc:slack",
+          "tag:oauth"
+        ]
+      },
+      {
+        "id": "slack-mcp",
+        "name": "Slack MCP",
+        "url": "https://docs.slack.dev/ai/slack-mcp-server/",
+        "interface": "mcp",
+        "price_band": "free",
+        "tags": [
+          "slack",
+          "chat",
+          "messaging",
+          "channels",
+          "workplace"
+        ],
+        "description": "Official Slack MCP server for reading channels and posting messages via Slack API.",
+        "install": "See https://docs.slack.dev/ai/slack-mcp-server/ \u2014 remote https://mcp.slack.com/mcp",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 8.75,
+        "reasons": [
+          "tag:slack",
+          "name~slack",
+          "desc:slack",
+          "price:free"
+        ]
+      },
+      {
+        "id": "anthropic-mcp",
+        "name": "Anthropic MCP Docs / Connectors",
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector",
+        "interface": "both",
+        "price_band": "paid",
+        "tags": [
+          "mcp",
+          "anthropic",
+          "claude",
+          "connectors",
+          "agents"
+        ],
+        "description": "Anthropic MCP documentation and Claude connectors for attaching MCP servers to Claude.",
+        "install": "See https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector \u2014 Messages API mcp_servers / Claude Desktop",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 8.25,
+        "reasons": [
+          "tag~connect",
+          "name~connect",
+          "desc:connect",
+          "tag~agent"
+        ]
+      },
+      {
+        "id": "zapier-mcp",
+        "name": "Zapier MCP",
+        "url": "https://zapier.com/mcp",
+        "interface": "mcp",
+        "price_band": "freemium",
+        "tags": [
+          "integrations",
+          "zapier",
+          "actions",
+          "oauth",
+          "automation",
+          "saas"
+        ],
+        "description": "Zapier MCP bridge to thousands of SaaS actions. Auth and run Zapier actions from agents.",
+        "install": "Configure at https://zapier.com/mcp \u2014 add remote MCP URL to client",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 5.25,
+        "reasons": [
+          "desc:agent",
+          "tag:oauth"
+        ]
+      },
+      {
+        "id": "parallel",
+        "name": "Parallel",
+        "url": "https://parallel.ai",
+        "interface": "api",
+        "price_band": "freemium",
+        "tags": [
+          "search",
+          "web",
+          "research",
+          "agents",
+          "parallel",
+          "task"
+        ],
+        "description": "Web research API for AI agents. Parallelized search and extraction for deep research workflows.",
+        "install": "See https://docs.parallel.ai \u2014 REST API with API key",
+        "health": "unknown",
+        "updated_at": "2026-09-12T00:00:00.000Z",
+        "score": 3,
+        "reasons": [
+          "tag~agent",
+          "desc:agent"
+        ]
+      }
+    ]
+  }
+}

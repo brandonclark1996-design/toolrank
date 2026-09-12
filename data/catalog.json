@@ -1,0 +1,699 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-12T00:00:00.000Z",
+  "tools": [
+    {
+      "id": "firecrawl",
+      "name": "Firecrawl",
+      "url": "https://www.firecrawl.dev",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "scrape",
+        "crawl",
+        "markdown",
+        "rag",
+        "web",
+        "html",
+        "extract"
+      ],
+      "description": "Turn websites into clean markdown/JSON for RAG and LLM pipelines. Crawl, scrape, and map APIs plus MCP server.",
+      "install": "npx -y firecrawl-mcp",
+      "health": "unknown",
+      "health_url": "https://api.firecrawl.dev",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "exa",
+      "name": "Exa",
+      "url": "https://exa.ai",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "search",
+        "web",
+        "neural",
+        "rag",
+        "research",
+        "find"
+      ],
+      "description": "Neural web search API optimized for AI agents. Find pages by meaning, get clean content for RAG.",
+      "install": "npx -y exa-mcp-server",
+      "health": "unknown",
+      "health_url": "https://api.exa.ai",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "tavily",
+      "name": "Tavily",
+      "url": "https://www.tavily.com",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "search",
+        "web",
+        "research",
+        "rag",
+        "news",
+        "extract"
+      ],
+      "description": "AI-native search API with answer generation and content extraction. Built for agents and RAG.",
+      "install": "npx -y tavily-mcp",
+      "health": "unknown",
+      "health_url": "https://api.tavily.com",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "browserbase",
+      "name": "Browserbase",
+      "url": "https://www.browserbase.com",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "browser",
+        "automation",
+        "playwright",
+        "scrape",
+        "session",
+        "headless"
+      ],
+      "description": "Cloud browser infrastructure for agents. Run Playwright/Puppeteer sessions remotely with stealth.",
+      "install": "npx -y @browserbasehq/mcp",
+      "health": "unknown",
+      "health_url": "https://www.browserbase.com",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "apify",
+      "name": "Apify",
+      "url": "https://apify.com",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "scrape",
+        "crawl",
+        "actors",
+        "automation",
+        "web",
+        "datasets"
+      ],
+      "description": "Actor marketplace and scraping platform. Thousands of ready scrapers plus custom actor hosting.",
+      "install": "npx -y @apify/actors-mcp-server",
+      "health": "unknown",
+      "health_url": "https://api.apify.com",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "composio",
+      "name": "Composio",
+      "url": "https://composio.dev",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "integrations",
+        "oauth",
+        "gmail",
+        "slack",
+        "github",
+        "tools",
+        "actions"
+      ],
+      "description": "Managed auth and 250+ tool integrations for agents. Connect Gmail, Slack, GitHub, Notion, etc.",
+      "install": "npx -y @composio/mcp",
+      "health": "unknown",
+      "health_url": "https://backend.composio.dev",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "context7",
+      "name": "Context7",
+      "url": "https://context7.com",
+      "interface": "mcp",
+      "price_band": "freemium",
+      "tags": [
+        "docs",
+        "library",
+        "code",
+        "context",
+        "documentation",
+        "sdk"
+      ],
+      "description": "Up-to-date library documentation for LLMs via MCP. Pull versioned docs into agent context.",
+      "install": "npx -y @upstash/context7-mcp",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "brightdata",
+      "name": "Bright Data",
+      "url": "https://brightdata.com",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "proxy",
+        "scrape",
+        "crawl",
+        "web",
+        "serp",
+        "unlocker",
+        "residential"
+      ],
+      "description": "Enterprise web data platform: proxies, SERP API, Web Unlocker, and scraping browser for agents.",
+      "install": "npx -y @brightdata/mcp",
+      "health": "unknown",
+      "health_url": "https://api.brightdata.com",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "parallel",
+      "name": "Parallel",
+      "url": "https://parallel.ai",
+      "interface": "api",
+      "price_band": "freemium",
+      "tags": [
+        "search",
+        "web",
+        "research",
+        "agents",
+        "parallel",
+        "task"
+      ],
+      "description": "Web research API for AI agents. Parallelized search and extraction for deep research workflows.",
+      "install": "See https://docs.parallel.ai \u2014 REST API with API key",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "smithery",
+      "name": "Smithery",
+      "url": "https://smithery.ai",
+      "interface": "mcp",
+      "price_band": "freemium",
+      "tags": [
+        "mcp",
+        "registry",
+        "hosting",
+        "discovery",
+        "servers",
+        "catalog"
+      ],
+      "description": "MCP server registry and hosting. Discover, configure, and run community MCP servers.",
+      "install": "npx -y @smithery/cli",
+      "health": "unknown",
+      "health_url": "https://smithery.ai",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "glama",
+      "name": "Glama MCP Hosting",
+      "url": "https://glama.ai/mcp",
+      "interface": "mcp",
+      "price_band": "freemium",
+      "tags": [
+        "mcp",
+        "hosting",
+        "directory",
+        "servers",
+        "gateway"
+      ],
+      "description": "MCP server directory and hosting notes. Browse and connect to hosted MCP servers.",
+      "install": "Browse https://glama.ai/mcp \u2014 connect via hosted gateway URLs",
+      "health": "unknown",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "mcp-registry",
+      "name": "Official MCP Registry",
+      "url": "https://registry.modelcontextprotocol.io",
+      "interface": "api",
+      "price_band": "free",
+      "tags": [
+        "mcp",
+        "registry",
+        "meta",
+        "discovery",
+        "official",
+        "catalog"
+      ],
+      "description": "Official Model Context Protocol registry API for discovering published MCP servers (meta catalog).",
+      "install": "GET https://registry.modelcontextprotocol.io \u2014 no local install; query registry API",
+      "health": "unknown",
+      "health_url": "https://registry.modelcontextprotocol.io",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "brave-search",
+      "name": "Brave Search MCP",
+      "url": "https://brave.com/search/api",
+      "interface": "mcp",
+      "price_band": "freemium",
+      "tags": [
+        "search",
+        "web",
+        "privacy",
+        "news",
+        "images"
+      ],
+      "description": "Brave Search API exposed as MCP. Independent web index for agent search without Google.",
+      "install": "npx -y @brave/brave-search-mcp-server",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "puppeteer-mcp",
+      "name": "Puppeteer MCP",
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "browser",
+        "scrape",
+        "screenshot",
+        "automation",
+        "puppeteer",
+        "headless"
+      ],
+      "description": "Official MCP server for browser automation via Puppeteer. Navigate, click, screenshot, scrape.",
+      "install": "npx -y @modelcontextprotocol/server-puppeteer",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "fetch-mcp",
+      "name": "Fetch MCP",
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "fetch",
+        "http",
+        "html",
+        "markdown",
+        "scrape",
+        "web"
+      ],
+      "description": "Official MCP fetch server. Retrieve URL content and convert HTML to markdown for LLMs.",
+      "install": "uvx mcp-server-fetch",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "github-mcp",
+      "name": "GitHub MCP",
+      "url": "https://github.com/github/github-mcp-server",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "github",
+        "git",
+        "repos",
+        "issues",
+        "prs",
+        "code"
+      ],
+      "description": "Official GitHub MCP server. Manage repos, issues, PRs, and code search from agents.",
+      "install": "See https://github.com/github/github-mcp-server \u2014 remote https://api.githubcopilot.com/mcp/ or docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "filesystem-mcp",
+      "name": "Filesystem MCP",
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "filesystem",
+        "files",
+        "local",
+        "read",
+        "write"
+      ],
+      "description": "Official MCP server for local filesystem access with configurable allowlists.",
+      "install": "npx -y @modelcontextprotocol/server-filesystem /path/to/allowed",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "memory-mcp",
+      "name": "Memory MCP",
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "memory",
+        "knowledge-graph",
+        "persist",
+        "context",
+        "notes"
+      ],
+      "description": "Knowledge-graph memory MCP server for persistent agent notes and entity relations.",
+      "install": "npx -y @modelcontextprotocol/server-memory",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "sqlite-mcp",
+      "name": "SQLite MCP",
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sqlite",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "sqlite",
+        "database",
+        "sql",
+        "query",
+        "local"
+      ],
+      "description": "Official SQLite MCP server for querying and exploring local SQLite databases.",
+      "install": "uvx mcp-server-sqlite --db-path /path/to/db.sqlite",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "postgres-mcp",
+      "name": "PostgreSQL MCP",
+      "url": "https://github.com/crystaldba/postgres-mcp",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "postgres",
+        "postgresql",
+        "database",
+        "sql",
+        "query"
+      ],
+      "description": "Official PostgreSQL MCP server for read-only SQL queries against Postgres.",
+      "install": "See https://github.com/crystaldba/postgres-mcp",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "slack-mcp",
+      "name": "Slack MCP",
+      "url": "https://docs.slack.dev/ai/slack-mcp-server/",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "slack",
+        "chat",
+        "messaging",
+        "channels",
+        "workplace"
+      ],
+      "description": "Official Slack MCP server for reading channels and posting messages via Slack API.",
+      "install": "See https://docs.slack.dev/ai/slack-mcp-server/ \u2014 remote https://mcp.slack.com/mcp",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "notion-api",
+      "name": "Notion API",
+      "url": "https://developers.notion.com",
+      "interface": "both",
+      "price_band": "freemium",
+      "tags": [
+        "notion",
+        "docs",
+        "wiki",
+        "database",
+        "workspace",
+        "notes"
+      ],
+      "description": "Notion public API for pages, databases, and blocks. Integrate workspace content into agents.",
+      "install": "See https://developers.notion.com/guides/mcp/get-started-with-mcp \u2014 remote https://mcp.notion.com/mcp",
+      "health": "unknown",
+      "health_url": "https://api.notion.com",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "serpapi",
+      "name": "SerpAPI",
+      "url": "https://serpapi.com",
+      "interface": "api",
+      "price_band": "freemium",
+      "tags": [
+        "search",
+        "serp",
+        "google",
+        "bing",
+        "scraping",
+        "web"
+      ],
+      "description": "Structured SERP API for Google, Bing, and other engines. JSON results for agent search.",
+      "install": "REST API key at https://serpapi.com \u2014 GET /search",
+      "health": "unknown",
+      "health_url": "https://serpapi.com",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "jina-reader",
+      "name": "Jina Reader",
+      "url": "https://jina.ai/reader",
+      "interface": "api",
+      "price_band": "freemium",
+      "tags": [
+        "scrape",
+        "markdown",
+        "reader",
+        "rag",
+        "html",
+        "fetch",
+        "web"
+      ],
+      "description": "Convert any URL to clean LLM-ready markdown via r.jina.ai. Simple fetch-based reader API.",
+      "install": "curl https://r.jina.ai/{url} \u2014 or Reader API with key at jina.ai",
+      "health": "unknown",
+      "health_url": "https://r.jina.ai",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "browserless",
+      "name": "Browserless",
+      "url": "https://www.browserless.io",
+      "interface": "api",
+      "price_band": "freemium",
+      "tags": [
+        "browser",
+        "puppeteer",
+        "playwright",
+        "pdf",
+        "screenshot",
+        "scrape"
+      ],
+      "description": "Hosted headless Chrome API for screenshots, PDFs, and scraping without managing browsers.",
+      "install": "REST/WebSocket \u2014 https://docs.browserless.io",
+      "health": "unknown",
+      "health_url": "https://www.browserless.io",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "scrapingbee",
+      "name": "ScrapingBee",
+      "url": "https://www.scrapingbee.com",
+      "interface": "api",
+      "price_band": "unknown",
+      "tags": [
+        "scrape",
+        "proxy",
+        "js-render",
+        "html",
+        "web",
+        "headless"
+      ],
+      "description": "Web scraping API with proxy rotation and JS rendering. Returns HTML/JSON for any URL.",
+      "install": "REST API \u2014 https://www.scrapingbee.com/documentation",
+      "health": "unknown",
+      "health_url": "https://app.scrapingbee.com",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "crawl4ai",
+      "name": "Crawl4AI",
+      "url": "https://github.com/unclecode/crawl4ai",
+      "interface": "api",
+      "price_band": "free",
+      "tags": [
+        "scrape",
+        "crawl",
+        "markdown",
+        "rag",
+        "open-source",
+        "llm"
+      ],
+      "description": "Open-source LLM-friendly web crawler. Outputs clean markdown optimized for RAG pipelines.",
+      "install": "pip install -U crawl4ai && crawl4ai-setup",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity API",
+      "url": "https://docs.perplexity.ai",
+      "interface": "api",
+      "price_band": "paid",
+      "tags": [
+        "search",
+        "research",
+        "answer",
+        "rag",
+        "sonar",
+        "web"
+      ],
+      "description": "Perplexity Sonar API for grounded web answers and research with citations.",
+      "install": "OpenAI-compatible API \u2014 https://docs.perplexity.ai",
+      "health": "unknown",
+      "health_url": "https://api.perplexity.ai",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "zapier-mcp",
+      "name": "Zapier MCP",
+      "url": "https://zapier.com/mcp",
+      "interface": "mcp",
+      "price_band": "freemium",
+      "tags": [
+        "integrations",
+        "zapier",
+        "actions",
+        "oauth",
+        "automation",
+        "saas"
+      ],
+      "description": "Zapier MCP bridge to thousands of SaaS actions. Auth and run Zapier actions from agents.",
+      "install": "Configure at https://zapier.com/mcp \u2014 add remote MCP URL to client",
+      "health": "unknown",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "supabase-mcp",
+      "name": "Supabase MCP",
+      "url": "https://supabase.com/docs/guides/ai-tools/mcp",
+      "interface": "mcp",
+      "price_band": "freemium",
+      "tags": [
+        "supabase",
+        "postgres",
+        "database",
+        "auth",
+        "storage",
+        "backend"
+      ],
+      "description": "Official Supabase MCP for querying projects, tables, and managing Supabase resources.",
+      "install": "See https://supabase.com/docs/guides/ai-tools/mcp \u2014 remote https://mcp.supabase.com/mcp",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "linear-mcp",
+      "name": "Linear MCP",
+      "url": "https://linear.app/docs/mcp",
+      "interface": "mcp",
+      "price_band": "freemium",
+      "tags": [
+        "linear",
+        "issues",
+        "project",
+        "tracking",
+        "devtools"
+      ],
+      "description": "Linear issue tracker MCP. Create and query issues, projects, and cycles from agents.",
+      "install": "npx -y mcp-remote https://mcp.linear.app/mcp",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "stripe-api",
+      "name": "Stripe API",
+      "url": "https://docs.stripe.com/api",
+      "interface": "api",
+      "price_band": "unknown",
+      "tags": [
+        "payments",
+        "billing",
+        "stripe",
+        "checkout",
+        "subscriptions"
+      ],
+      "description": "Stripe REST API for payments, customers, subscriptions, and billing automation.",
+      "install": "Official SDKs \u2014 https://docs.stripe.com/api",
+      "health": "unknown",
+      "health_url": "https://api.stripe.com",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "openai-assistants",
+      "name": "OpenAI Tools / Assistants",
+      "url": "https://developers.openai.com/api/docs",
+      "interface": "api",
+      "price_band": "paid",
+      "tags": [
+        "llm",
+        "assistants",
+        "tools",
+        "function-calling",
+        "openai"
+      ],
+      "description": "OpenAI platform APIs for chat, tools, file search, and the Responses API. Assistants API shut down 2026-08-26; use Responses + Conversations.",
+      "install": "openai Python/JS SDK \u2014 https://developers.openai.com/api/docs",
+      "health": "unknown",
+      "health_url": "https://api.openai.com",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "anthropic-mcp",
+      "name": "Anthropic MCP Docs / Connectors",
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector",
+      "interface": "both",
+      "price_band": "paid",
+      "tags": [
+        "mcp",
+        "anthropic",
+        "claude",
+        "connectors",
+        "agents"
+      ],
+      "description": "Anthropic MCP documentation and Claude connectors for attaching MCP servers to Claude.",
+      "install": "See https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector \u2014 Messages API mcp_servers / Claude Desktop",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    },
+    {
+      "id": "playwright-mcp",
+      "name": "Playwright MCP",
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "browser",
+        "playwright",
+        "automation",
+        "scrape",
+        "testing",
+        "accessibility"
+      ],
+      "description": "Microsoft Playwright MCP server. Browser automation via accessibility tree for reliable agent control.",
+      "install": "npx -y @playwright/mcp@latest",
+      "health": "unknown",
+      "updated_at": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "id": "duckduckgo-search",
+      "name": "DuckDuckGo Search MCP",
+      "url": "https://github.com/nickclyde/duckduckgo-mcp-server",
+      "interface": "mcp",
+      "price_band": "free",
+      "tags": [
+        "search",
+        "web",
+        "privacy",
+        "duckduckgo",
+        "free"
+      ],
+      "description": "Free DuckDuckGo search MCP server. No API key required for basic web search.",
+      "install": "uvx duckduckgo-mcp-server",
+      "health": "unknown",
+      "updated_at": "2026-09-12T00:00:00.000Z"
+    }
+  ]
+}

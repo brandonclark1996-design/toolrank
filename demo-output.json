@@ -1,0 +1,159 @@
+{
+  "health": {
+    "ok": true,
+    "service": "toolrank",
+    "catalog": {
+      "version": 1,
+      "updated_at": "2026-09-12T00:00:00.000Z",
+      "count": 36
+    }
+  },
+  "search": {
+    "job": "scrape website to markdown for RAG",
+    "constraints": {
+      "budget": "any"
+    },
+    "count": 5,
+    "results": [
+      {
+        "id": "firecrawl",
+        "name": "Firecrawl",
+        "url": "https://www.firecrawl.dev",
+        "interface": "both",
+        "price_band": "freemium",
+        "tags": [
+          "scrape",
+          "crawl",
+          "markdown",
+          "rag",
+          "web",
+          "html",
+          "extract"
+        ],
+        "description": "Turn websites into clean markdown/JSON for RAG and LLM pipelines. Crawl, scrape, and map APIs plus MCP server.",
+        "install": "npx -y firecrawl-mcp",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 18.25,
+        "reasons": [
+          "tag:scrape",
+          "desc:scrape",
+          "tag~website",
+          "desc:website",
+          "tag:markdown",
+          "desc:markdown",
+          "tag:rag",
+          "desc:rag"
+        ]
+      },
+      {
+        "id": "jina-reader",
+        "name": "Jina Reader",
+        "url": "https://jina.ai/reader",
+        "interface": "api",
+        "price_band": "freemium",
+        "tags": [
+          "scrape",
+          "markdown",
+          "reader",
+          "rag",
+          "html",
+          "fetch",
+          "web"
+        ],
+        "description": "Convert any URL to clean LLM-ready markdown via r.jina.ai. Simple fetch-based reader API.",
+        "install": "curl https://r.jina.ai/{url} \u2014 or Reader API with key at jina.ai",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 15,
+        "reasons": [
+          "tag:scrape",
+          "tag~website",
+          "tag:markdown",
+          "desc:markdown",
+          "tag:rag"
+        ]
+      },
+      {
+        "id": "crawl4ai",
+        "name": "Crawl4AI",
+        "url": "https://github.com/unclecode/crawl4ai",
+        "interface": "api",
+        "price_band": "free",
+        "tags": [
+          "scrape",
+          "crawl",
+          "markdown",
+          "rag",
+          "open-source",
+          "llm"
+        ],
+        "description": "Open-source LLM-friendly web crawler. Outputs clean markdown optimized for RAG pipelines.",
+        "install": "pip install crawl4ai && crawl4ai-setup \u2014 self-host HTTP API",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 14.5,
+        "reasons": [
+          "tag:scrape",
+          "tag:markdown",
+          "desc:markdown",
+          "tag:rag",
+          "desc:rag",
+          "price:free"
+        ]
+      },
+      {
+        "id": "fetch-mcp",
+        "name": "Fetch MCP",
+        "url": "https://github.com/modelcontextprotocol/servers",
+        "interface": "mcp",
+        "price_band": "free",
+        "tags": [
+          "fetch",
+          "http",
+          "html",
+          "markdown",
+          "scrape",
+          "web"
+        ],
+        "description": "Official MCP fetch server. Retrieve URL content and convert HTML to markdown for LLMs.",
+        "install": "npx -y @modelcontextprotocol/server-fetch",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 11.75,
+        "reasons": [
+          "tag:scrape",
+          "tag~website",
+          "tag:markdown",
+          "desc:markdown",
+          "price:free"
+        ]
+      },
+      {
+        "id": "apify",
+        "name": "Apify",
+        "url": "https://apify.com",
+        "interface": "both",
+        "price_band": "freemium",
+        "tags": [
+          "scrape",
+          "crawl",
+          "actors",
+          "automation",
+          "web",
+          "datasets"
+        ],
+        "description": "Actor marketplace and scraping platform. Thousands of ready scrapers plus custom actor hosting.",
+        "install": "npx -y @apify/actors-mcp-server",
+        "health": "unknown",
+        "updated_at": "2026-09-01T00:00:00.000Z",
+        "score": 7.25,
+        "reasons": [
+          "tag:scrape",
+          "desc:scrape",
+          "tag~website"
+        ]
+      }
+    ]
+  }
+}
