@@ -1,16 +1,17 @@
 # ToolRank
 
-> Ranked shortlist of MCP servers and APIs for agent jobs. Public-ready deploy without Stripe / custom domain.
+> Ranked shortlist of MCP servers and APIs for agent jobs. Lexical ranking over 36 curated tools. Health often unknown. No Stripe. No paid placement.
 
 ## Base URL
 
-http://127.0.0.1:8787 (HOST=0.0.0.0 for containers)
+https://toolrank.onrender.com
+Local: http://127.0.0.1:8787 (HOST=0.0.0.0 for containers)
 
 ## Auth
 
 - Env TOOLRANK_API_KEYS=key:plan,... (plans free|builder; bare key=free)
 - Headers: Authorization: Bearer <key> OR X-API-Key: <key>
-- Anonymous: 20 req/IP/24h on /v1/* (process-local)
+- Anonymous: 20 req/IP/24h on /v1/* and /mcp (process-local)
 - free key: 100/24h; builder: 2000/24h
 - /health and /openapi.json always open
 - 401 invalid key; 429 + Retry-After over quota
@@ -23,19 +24,22 @@ http://127.0.0.1:8787 (HOST=0.0.0.0 for containers)
 - GET /v1/tools/:id — single tool
 - GET /v1/fresh?since=ISO — tools updated after timestamp
 - GET /openapi.json — OpenAPI 3.1
+- POST /mcp — Streamable HTTP MCP (same auth/quota as /v1/*)
 
-## MCP (stdio)
+## MCP
 
-npm run mcp — tools: search_tools, get_tool, list_fresh
+stdio: npm run mcp
+HTTP: https://toolrank.onrender.com/mcp
+tools: search_tools, get_tool, list_fresh
 
 ## Ranking (honest)
 
-Tokenize job; score tag/name/description matches; boost matching price_band; boost health=up. No paid placement.
+Tokenize job; score tag/name/description matches; boost matching price_band; boost health=up. Lexical only. 36 curated tools. Health often unknown. No paid placement. Stripe not wired.
 
 ## Data
 
-data/catalog.json — curated public tools (Firecrawl, Exa, Tavily, Browserbase, Apify, Composio, Context7, Bright Data, Parallel, Smithery, Glama, official MCP registry meta, etc.)
+data/catalog.json — 36 curated public tools (Firecrawl, Exa, Tavily, Browserbase, Apify, Composio, Context7, Bright Data, Parallel, Smithery, Glama, official MCP registry meta, etc.)
 
 ## Agent tip
 
-Prefer POST /v1/search with a concrete job string and an API key when hosted. Use constraints.budget=free when the user wants no paid APIs. Read install snippets before recommending.
+Prefer POST /v1/search or MCP search_tools with a concrete job string and an API key when hosted. Use constraints.budget=free when the user wants no paid APIs. Read install snippets before recommending. Read /openapi.json for the HTTP contract.

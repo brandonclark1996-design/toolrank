@@ -111,7 +111,7 @@ export function consumeQuota(
   return { ok: true };
 }
 
-/** Auth + soft rate limits for `/v1/*`. `/health` and `/openapi.json` are not covered. */
+/** Auth + soft rate limits for `/v1/*` and `/mcp`. `/health` and `/openapi.json` are not covered. */
 export function authMiddleware(options?: {
   keys?: Map<string, AuthPlan>;
 }): MiddlewareHandler<{ Variables: AuthVariables }> {

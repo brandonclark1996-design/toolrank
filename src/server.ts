@@ -3,6 +3,7 @@ import { cors } from 'hono/cors';
 import { authMiddleware, type AuthPlan, type AuthVariables } from './auth.js';
 import { catalogMeta, getToolById, listFresh, loadCatalog } from './catalog.js';
 import { enrichHealth } from './health.js';
+import { handleMcpHttp } from './mcp-http.js';
 import { openApiSpec } from './openapi.js';
 import { rankTools } from './ranking.js';
 import { responseEnvelope } from './schema.js';
@@ -12,7 +13,22 @@ export type AppEnv = { Variables: AuthVariables };
 
 export function createApp(options?: { apiKeys?: Map<string, AuthPlan> }) {
   const app = new Hono<AppEnv>();
-  app.use('*', cors());
+  app.use(
+    '*',
+    cors({
+      origin: '*',
+      allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+      allowHeaders: [
+        'Content-Type',
+        'Authorization',
+        'X-API-Key',
+        'mcp-session-id',
+        'Last-Event-ID',
+        'mcp-protocol-version',
+      ],
+      exposeHeaders: ['mcp-session-id', 'mcp-protocol-version', 'Retry-After'],
+    }),
+  );
 
   app.get('/health', (c) => {
     loadCatalog();
@@ -21,8 +37,11 @@ export function createApp(options?: { apiKeys?: Map<string, AuthPlan> }) {
 
   app.get('/openapi.json', (c) => c.json(openApiSpec));
 
-  // Auth + soft quotas for all /v1/* routes (health + openapi stay open)
-  app.use('/v1/*', authMiddleware(options?.apiKeys ? { keys: options.apiKeys } : undefined));
+  const auth = authMiddleware(options?.apiKeys ? { keys: options.apiKeys } : undefined);
+
+  // Auth + soft quotas for /v1/* and /mcp (health + openapi stay open)
+  app.use('/v1/*', auth);
+  app.use('/mcp', auth);
 
   app.post('/v1/search', async (c) => {
     let body: unknown;
@@ -88,6 +107,10 @@ export function createApp(options?: { apiKeys?: Map<string, AuthPlan> }) {
     } catch (e) {
       return c.json({ error: e instanceof Error ? e.message : 'Bad since' }, 400);
     }
+  });
+
+  app.all('/mcp', async (c) => {
+    return handleMcpHttp(c.req.raw);
   });
 
   return app;

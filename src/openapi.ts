@@ -4,9 +4,10 @@ export const openApiSpec = {
     title: 'ToolRank API',
     version: '0.1.0',
     description:
-      'Ranked shortlist of MCP servers/APIs for agent jobs. Optional API keys via Authorization: Bearer or X-API-Key (TOOLRANK_API_KEYS). Anonymous: 20/IP/24h on /v1/*. free key: 100/24h; builder: 2000/24h (process-local). /health and /openapi.json are open. Successful JSON bodies include schema_version and as_of. Stripe/custom domain not wired.',
+      'Ranked shortlist of MCP servers/APIs for agent jobs. Lexical ranking over 36 curated tools; health is often unknown. Optional API keys via Authorization: Bearer or X-API-Key (TOOLRANK_API_KEYS). Anonymous: 20/IP/24h on /v1/* and /mcp. free key: 100/24h; builder: 2000/24h (process-local). /health and /openapi.json are open. Streamable HTTP MCP at POST /mcp. Successful JSON bodies include schema_version and as_of. Stripe/custom domain not wired.',
   },
   servers: [
+    { url: 'https://toolrank.onrender.com', description: 'Production (Render)' },
     { url: 'http://localhost:8787', description: 'Local default' },
     { url: '/', description: 'Same origin / deployed host' },
   ],

@@ -1,8 +1,14 @@
 # ToolRank — agent guide
 
-You are talking to a ToolRank instance (local or hosted). It returns a ranked shortlist of MCP servers / HTTP APIs for a job description.
+You are talking to a ToolRank instance. It returns a ranked shortlist of MCP servers / HTTP APIs for a job description.
 
-**Note:** Stripe and custom domains are **not** wired yet. Auth is API-key + soft in-memory quotas only.
+**Honesty:** Ranking is **lexical** (token overlap on tags/name/description plus small budget/health/MCP boosts). Catalog is **36 curated tools**, not the whole ecosystem. `health` is **often `unknown`** unless `check_health` is set (and even then only marks reachable hosts `up`). **Stripe is not wired.** No sponsored placement.
+
+## Base URL
+
+Production: `https://toolrank.onrender.com`
+
+Local: `http://127.0.0.1:8787` (`$HOST` defaults to `0.0.0.0`, `$PORT` default `8787`).
 
 ## When to call
 
@@ -10,13 +16,11 @@ Use ToolRank when you need to **choose tools** (scrape, search, browser, integra
 
 ## HTTP
 
-Base: `http://127.0.0.1:8787` locally, or the host’s public URL (`$HOST` defaults to `0.0.0.0`, `$PORT` default `8787`).
-
 ### Auth
 
 | Mode | Headers | Limit (process-local, rolling 24h) |
 |------|---------|-------------------------------------|
-| Anonymous | none | 20 / IP on `/v1/*` |
+| Anonymous | none | 20 / IP on `/v1/*` and `/mcp` |
 | Free key | `Authorization: Bearer <key>` **or** `X-API-Key: <key>` | 100 / key |
 | Builder key | same | 2000 / key |
 
@@ -45,14 +49,22 @@ Every successful JSON body includes `schema_version` (currently `0.1.0`) and `as
 
 Response `results[]` fields: `id`, `name`, `url`, `interface`, `price_band`, `tags`, `description`, `install`, `health`, `score`, `reasons`.
 
-### Detail / fresh
+### Detail / fresh / discovery
 
 - `GET /v1/tools/{id}`
 - `GET /v1/fresh?since=2026-01-01T00:00:00.000Z`
+- `GET /openapi.json` — OpenAPI 3.1
+- `GET /health` — liveness + catalog meta
 
-## MCP stdio
+## MCP
 
-If configured as an MCP server (`npm run mcp`):
+### Streamable HTTP (hosted)
+
+`https://toolrank.onrender.com/mcp` — same auth/quota as `/v1/*`. Local: `http://127.0.0.1:8787/mcp`.
+
+### stdio (local)
+
+`npm run mcp`
 
 | Tool | Args | Purpose |
 |------|------|---------|

@@ -2,18 +2,20 @@
 
 Ranked shortlist of **MCP servers / APIs** for agent jobs — health, `price_band`, and install snippet.
 
-Private build for Brandon Clark / ToolRank. **All Rights Reserved** (see `LICENSE`). No git remote, no publish from this box.
+**Live:** [https://toolrank.onrender.com](https://toolrank.onrender.com) — OpenAPI at [`/openapi.json`](https://toolrank.onrender.com/openapi.json), Streamable HTTP MCP at [`/mcp`](https://toolrank.onrender.com/mcp).
 
-**Not wired yet:** Stripe billing, custom domain purchase. Deploy on Render/Railway free hostname is fine.
+Private build for Brandon Clark / ToolRank. **All Rights Reserved** (see `LICENSE`). GitHub: [brandonclark1996-design/toolrank](https://github.com/brandonclark1996-design/toolrank).
+
+**Honesty:** Ranking is lexical (token overlap), not learned or sponsored. Catalog is **36 curated tools**. `health` is often `unknown`. **Stripe is not wired.** Custom domain is not purchased.
 
 ## Stack
 
 - Node 20, TypeScript
 - [Hono](https://hono.dev) HTTP API
 - Zod validation
-- JSON catalog (`data/catalog.json`, 30+ curated public tools)
-- Optional MCP stdio via `@modelcontextprotocol/sdk` (`npm run mcp`)
-- API-key auth + process-local soft quotas (`src/auth.ts`)
+- JSON catalog (`data/catalog.json`, 36 curated public tools)
+- MCP stdio (`npm run mcp`) and Streamable HTTP (`POST /mcp`) via `@modelcontextprotocol/sdk`
+- API-key auth + process-local soft quotas (`src/auth.ts`) on `/v1/*` and `/mcp`
 
 ## Quick start (local)
 
@@ -55,7 +57,7 @@ Anonymous (no key) works until the free IP quota is hit (20 / rolling 24h).
 
 | Caller | How | Soft limit (process-local, rolling 24h) |
 |--------|-----|----------------------------------------|
-| Anonymous | No key | 20 req / IP to `/v1/*` |
+| Anonymous | No key | 20 req / IP to `/v1/*` and `/mcp` |
 | `free` key | `Authorization: Bearer <key>` or `X-API-Key: <key>` | 100 / key |
 | `builder` key | same headers | 2000 / key |
 
@@ -79,6 +81,8 @@ Also set `HOST=0.0.0.0` (default in code) and let the platform inject `PORT`.
 
 ## HTTP API
 
+Base: `https://toolrank.onrender.com` (or `http://127.0.0.1:8787` locally).
+
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/health` | Liveness + catalog meta (open) |
@@ -86,6 +90,7 @@ Also set `HOST=0.0.0.0` (default in code) and let the platform inject `PORT`.
 | GET | `/v1/tools/:id` | Tool detail (auth/quota) |
 | GET | `/v1/fresh?since=` | Updated since ISO timestamp (auth/quota) |
 | GET | `/openapi.json` | OpenAPI 3.1 (open) |
+| ALL | `/mcp` | Streamable HTTP MCP (auth/quota; same tools as stdio) |
 
 ### Search body
 
@@ -118,7 +123,8 @@ docker run --rm -p 8787:8787 \
 ### Render
 
 - Blueprint: `render.yaml` (Docker web service, free plan friendly).
-- Set `TOOLRANK_API_KEYS` in the dashboard. Use the default `*.onrender.com` URL (no custom domain required).
+- Live hostname: `https://toolrank.onrender.com` (no custom domain required).
+- Set `TOOLRANK_API_KEYS` in the dashboard.
 
 ### Railway
 
@@ -127,15 +133,35 @@ docker run --rm -p 8787:8787 \
 
 Build step for native Node hosts: `npm ci && npm run build` then `node dist/index.js`.
 
-## MCP stdio
+## MCP
+
+Tools: `search_tools`, `get_tool`, `list_fresh` (shared handlers for stdio + HTTP).
+
+### Streamable HTTP (production)
+
+```
+https://toolrank.onrender.com/mcp
+```
+
+Same API-key / anonymous quota as `/v1/*`. Official MCP Registry manifest: `server.json` (`io.github.brandonclark1996-design/toolrank`). Do not run `mcp-publisher` from this box unless asked.
+
+Cursor / Claude HTTP MCP config snippet:
+
+```json
+{
+  "mcpServers": {
+    "toolrank": {
+      "url": "https://toolrank.onrender.com/mcp"
+    }
+  }
+}
+```
+
+### stdio (local)
 
 ```bash
 npm run mcp
 ```
-
-Exposes tools: `search_tools`, `get_tool`, `list_fresh`.
-
-Example Claude Desktop / Cursor MCP config snippet:
 
 ```json
 {
@@ -157,18 +183,19 @@ Example Claude Desktop / Cursor MCP config snippet:
 4. Boost `health: up`; penalize `health: down`.
 5. Tiny preference for `mcp` / `both` interfaces.
 
-Honest lexical ranking — no paid placement.
+Honest lexical ranking — no paid placement. 36 curated tools. Health often unknown. Stripe not wired.
 
 ## Docs
 
 - `docs/AGENT.md` — agent-readable usage (auth headers + limits)
 - `docs/llms.txt` — compact machine summary
+- `server.json` — Official MCP Registry manifest (not published yet)
 - `scripts/README-ingest.md` — stub for future registry.modelcontextprotocol.io ingest
 
 ## Tests & build
 
 ```bash
-npm test    # vitest — ranking, envelope, auth middleware
+npm test    # vitest — ranking, envelope, auth middleware, /mcp
 npm run build
 ```
 
@@ -179,6 +206,7 @@ npm run build
 - [ ] Stripe / paid upgrades (not started)
 - [ ] Custom domain (not purchased / not wired)
 - [ ] Shared Redis (or similar) quotas if multi-instance
+- [ ] Publish `server.json` with mcp-publisher (not run from this change)
 
 ## License
 
